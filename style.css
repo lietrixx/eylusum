@@ -1,0 +1,152 @@
+﻿body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+
+    background-image:
+        linear-gradient(rgba(40,0,20,0.65), rgba(40,0,20,0.65)),
+        url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffd1dc;
+}
+
+#top {
+    font-size: clamp(22px, 4vw, 38px);
+    padding: 20px;
+    color: #ffb6c1;
+}
+
+#center.hidden { display: none; }
+
+#text {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(48px, 12vw, 90px);
+    cursor: pointer;
+}
+
+.hidden { display: none; }
+
+#scene {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    background: rgba(20,0,15,0.55);
+    opacity: 0;
+    z-index: 10;
+}
+
+.fade-in {
+    animation: fade 2s forwards;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.side {
+    max-width: 220px;
+    font-size: clamp(14px, 3.5vw, 18px);
+}
+
+/* 🔧 DÜZELTME */
+.scene-svg {
+    position: relative;
+    width: min(90vw, 600px);
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scene-svg svg {
+    width: 100%;
+    height: auto;
+}
+
+.final-text {
+    margin-top: 15px;
+    font-size: clamp(16px, 4vw, 22px);
+}
+
+#typewriter {
+    margin-top: 10px;
+    font-size: clamp(14px, 3.5vw, 18px);
+}
+
+/* 💌 ZARF — DÜZELTİLMİŞ */
+#love-letter-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#letter-emoji {
+    font-size: 48px;
+    cursor: pointer;
+    display: none;
+    animation: heartbeat 1.2s infinite;
+}
+
+#letter-text {
+    display: none;
+    margin-top: 12px;
+    font-size: 36px;
+    font-family: 'Great Vibes', cursive;
+    color: #ffd6e8;
+    letter-spacing: 3px;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.heart-fall {
+    position: absolute;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    from { transform: translateY(-10px); opacity: 1; }
+    to { transform: translateY(100vh); opacity: 0; }
+}
+
+#music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #scene { flex-direction: column; }
+    body { background-attachment: scroll; }
+}
